@@ -1,28 +1,28 @@
-﻿Column,Description
-Crude_Oil_Prod,"Crude Oil Production: The total amount of crude oil produced, typically measured in barrels."
-Nat_Gas_Prod,"Natural Gas Production: The total amount of dry natural gas produced, typically measured in cubic feet."
-Coal_Prod,"Coal Production: The total amount of coal produced, typically measured in short tons."
-Total_Energy_Prod,"Total Energy Production: The total amount of energy produced from all sources, measured in quadrillion Btu."
-Liq_Fuels_Cons,"Liquid Fuels Consumption: The total consumption of liquid fuels, typically measured in barrels."
-Nat_Gas_Cons,"Natural Gas Consumption: The total consumption of natural gas, typically measured in cubic feet."
-Coal_Cons,"Coal Consumption: The total consumption of coal, typically measured in short tons."
-Elec_Cons,"Electricity Consumption: The total consumption of electricity, typically measured in kilowatt-hours."
-Renew_Cons,"Renewables Consumption: The total consumption of renewable energy sources, typically measured in quadrillion Btu."
-Total_Energy_Cons,"Total Energy Consumption: The total amount of energy consumed from all sources, measured in quadrillion Btu."
-Crude_Oil_Price,"Crude Oil Price: The average price of crude oil per barrel, measured in dollars."
-Nat_Gas_Price,"Natural Gas Price: The average price of natural gas per million Btu, measured in dollars."
-Coal_Price,"Coal Price: The average price of coal per million Btu, measured in dollars."
-Real_GDP,"Real Gross Domestic Product: The total value of all goods and services produced in a country, adjusted for inflation, measured in trillions of dollars."
-Real_GDP_YOY,RGDP Percent Change YOY: The year-over-year percentage change in real gross domestic product.
-GDP_IPD,GDP Implicit Price Deflator: A measure of the overall change in prices within the economy.
-GDP_IPD_YOY,GDP IPD Percent Change YOY: The year-over-year percentage change in the GDP implicit price deflator.
-Real_DPI,Real Disposable Personal Income: The amount of money households have available for spending and saving after taxes and inflation adjustments.
-Real_DPI_YOY,RDPI Percent Change YOY: The year-over-year percentage change in real disposable personal income.
-Mfg_Prod_Index,Manufacturing Production Index: An index measuring the production output of the manufacturing sector.
-Mfg_Prod_Index_YOY,MPI Percent Change YOY: The year-over-year percentage change in the manufacturing production index.
-TB1YR_Rate,"1-Year Treasury Bill Rate: The interest rate on a one-year U.S. Treasury bill, a short-term government debt security."
-TB3MS_Rate,3-Month Treasury Bill Rate: The interest rate on a three-month U.S. Treasury bill.
-Mort_Rate,Mortgage Rate: The average interest rate charged on mortgages.
-CPI,Consumer Price Index: A measure that examines the weighted average of prices of a basket of consumer goods and services.
-CPI_YOY,CPI YOY%: The year-over-year percentage change in the consumer price index.
-CPI_MOM,CPI MOM%: The month-over-month percentage change in the consumer price index.
+﻿Column,Unit,Description,Source
+Crude_Oil_Prod,million barrels per day,"Crude Oil Production: The total amount of crude oil produced, typically measured in million barrels per day.",EIA
+Nat_Gas_Prod,billion cubic feet per day,"Natural Gas Production: The total amount of dry natural gas produced, typically measured in billion cubic feet per day.",EIA
+Coal_Prod,million short tons,"Coal Production: The total amount of coal produced, typically measured in million short tons.",EIA
+Total_Energy_Prod,quadrillion btu,"Total Energy Production: The total amount of energy produced from all sources, typically measured in quadrillion British thermal units (BTU).",EIA
+Liq_Fuels_Cons,million barrels per day,"Liquid Fuels Consumption: The total consumption of liquid fuels, typically measured in million barrels per day.",EIA
+Nat_Gas_Cons,billion cubic feet per day,"Natural Gas Consumption: The total consumption of natural gas, typically measured in billion cubic feet per day.",EIA
+Coal_Cons,million short tons,"Coal Consumption: The total consumption of coal, typically measured in million short tons.",EIA
+Elec_Cons,billion kilowatthours per day,"Electricity Consumption: The total consumption of electricity, typically measured in billion kilowatt-hours per day.",EIA
+Renew_Cons,quadrillion btu,"Renewables Consumption: The total consumption of renewable energy sources, typically measured in quadrillion British thermal units (BTU).",EIA
+Total_Energy_Cons,quadrillion btu,"Total Energy Consumption: The total amount of energy consumed from all sources, typically measured in quadrillion British thermal units (BTU).",EIA
+Crude_Oil_Price,dollars per barrel,"Crude Oil Price: The average price of crude oil per barrel, measured in dollars.",EIA
+Nat_Gas_Price,dollars per million btu,"Natural Gas Price: The average price of natural gas per million British thermal units (BTU), measured in dollars.",EIA
+Coal_Price,dollars per million btu,"Coal Price: The average price of coal per million British thermal units (BTU), measured in dollars.",EIA
+Real_GDP,Trillion $,"Real Gross Domestic Product: The total value of all goods and services produced in a country, adjusted for inflation, measured in trillions of dollars.",EIA
+Real_GDP_YOY,percent change from prior year,RGDP Percent Change YOY: The year-over-year percentage change in real gross domestic product.,EIA
+GDP_IPD,dollars,GDP Implicit Price Deflator: A measure of the overall change in prices within the economy.,EIA
+GDP_IPD_YOY,percent,GDP IPD Percent Change YOY: The year-over-year percentage change in the GDP implicit price deflator.,EIA
+Real_DPI,dollars,Real Disposable Personal Income: The amount of money households have available for spending and saving after taxes and inflation adjustments.,EIA
+Real_DPI_YOY,percent,RDPI Percent Change YOY: The year-over-year percentage change in real disposable personal income.,EIA
+Mfg_Prod_Index,,Manufacturing Production Index: An index measuring the production output of the manufacturing sector.,EIA
+Mfg_Prod_Index_YOY,percent,MPI Percent Change YOY: The year-over-year percentage change in the manufacturing production index.,EIA
+TB1YR_Rate,percent,"1-Year Treasury Bill Rate: The interest rate on a one-year U.S. Treasury bill, a short-term government debt security.",US FRED St. Louis
+TB3MS_Rate,percent,3-Month Treasury Bill Rate: The interest rate on a three-month U.S. Treasury bill.,US FRED St. Louis
+Mort_Rate,percent,Mortgage Rate: The average interest rate charged on mortgages.,US FRED St. Louis
+CPI,,Consumer Price Index: A measure that examines the weighted average of prices of a basket of consumer goods and services.,Bureau of Labor Statistics
+CPI_YOY,percent,CPI YOY%: The year-over-year percentage change in the consumer price index.,Bureau of Labor Statistics
+CPI_MOM,percent,CPI MOM%: The month-over-month percentage change in the consumer price index.,Bureau of Labor Statistics
