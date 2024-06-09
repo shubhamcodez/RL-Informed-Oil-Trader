@@ -21,5 +21,5 @@ def volatility_based_adjustment(predictions, predicted_volatility, vol_threshold
     adjusted_predictions = predictions.copy()
     for i in range(len(predictions)):
         if predicted_volatility[i] > vol_threshold:
-            adjusted_predictions[i] = 0
+            adjusted_predictions[i] = predictions[i]
     return adjusted_predictions
