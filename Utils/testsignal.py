@@ -23,7 +23,7 @@ def test_signal(signals, y_valid, margin):
     # Calculate cumulative returns starting with $100
     cumulative_returns = (1 + returns).cumprod() * margin
     cumulative_returns = cumulative_returns[1:]  # since first day no signal
-    #print(cumulative_returns)
+    
     # Calculate annualized returns
     annualized_returns = (cumulative_returns.iloc[-1] / cumulative_returns.iloc[0]) ** (12 / len(cumulative_returns)) - 1
 
@@ -33,46 +33,9 @@ def test_signal(signals, y_valid, margin):
     max_drawdown = drawdown.max()
 
     return {
-        'directional_accuracy': round(directional_accuracy_percentage,2),
-        'sharpe_ratio': round(sharpe_ratio,2),
-        'annualized_returns': round(annualized_returns*100,2),
-        'max_drawdown': round(max_drawdown*100,2)
-    }
-
-
-def trade(signal, price, margin, trades):
-    # Initialize cumulative performance metrics if it's the first trade
-    if trades == 0:
-        cumulative_returns = margin
-        cumulative_max = margin
-        max_drawdown = 0
-        correct_directions = 0
-    else:
-        cumulative_returns = margin
-        cumulative_max = max(cumulative_max, cumulative_returns)
-        drawdown = (cumulative_max - cumulative_returns) / cumulative_max
-        max_drawdown = max(drawdown, max_drawdown)
-        if signal * price > 0:
-            correct_directions += 1
-
-    # Calculate Sharpe ratio (not meaningful for single trades)
-    sharpe_ratio = np.nan
-    
-    # Calculate directional accuracy
-    if trades > 0:
-        directional_accuracy = (correct_directions / trades) * 100
-    else:
-        directional_accuracy = 0
-
-    # Update margin
-    margin += (price - price) / price * margin
-
-    # Update trades count
-    trades += 1
-
-    return {
-        'directional_accuracy': round(directional_accuracy, 2),
+        'returns': cumulative_returns,
+        'directional_accuracy': round(directional_accuracy_percentage, 2),
         'sharpe_ratio': round(sharpe_ratio, 2),
-        'max_drawdown': round(max_drawdown * 100, 2),
-        'margin': round(margin, 2)
+        'annualized_returns': round(annualized_returns * 100, 2),
+        'max_drawdown': round(max_drawdown * 100, 2)
     }
