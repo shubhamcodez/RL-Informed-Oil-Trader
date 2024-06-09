@@ -11,7 +11,7 @@ def load_and_preprocess_data(file_path):
     df.fillna(0, inplace=True)
     return df
 
-def split_data(df, target_column, test_size=0.20):
+def split_data(df, target_column, test_size=0.10):
     features = df.drop(columns=[target_column])
     target = df[target_column]
     X_train, X_valid, y_train, y_valid = train_test_split(features, target, test_size=test_size, shuffle=False)
