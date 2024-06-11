@@ -90,8 +90,7 @@ def apply_position_sizing(agent, returns, volatility, margin):
         position_sizes.append(position_size)
         obs, _, done, _ = env.step(action)
         if done:
-            break
-    
+            break    
     position_sizes = pd.Series(position_sizes, index=returns.index)
     return position_sizes
 
