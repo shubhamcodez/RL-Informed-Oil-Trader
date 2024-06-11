@@ -43,7 +43,7 @@ class TradingEnv(gym.Env):
     def render(self, mode='human'):
         pass
 
-def train_reinforcement_learning_agent(returns, volatility):
+def train_rl_agent(returns, volatility):
     """
     Train a reinforcement learning agent to determine position sizes.
     
@@ -59,7 +59,7 @@ def train_reinforcement_learning_agent(returns, volatility):
     model.learn(total_timesteps=10000)
     return model
 
-def apply_position_sizing(agent, returns, volatility):
+def apply_position_sizing(agent, returns, volatility, margin):
     """
     Apply the trained reinforcement learning agent for position sizing.
     
@@ -67,6 +67,7 @@ def apply_position_sizing(agent, returns, volatility):
     agent (PPO): Trained reinforcement learning agent.
     returns (pd.Series): Adjusted returns after applying risk management.
     volatility (np.ndarray): Predicted volatilities.
+    margin (float): Available margin for trading.
     
     Returns:
     pd.Series: Position sizes determined by the RL agent.
@@ -76,13 +77,14 @@ def apply_position_sizing(agent, returns, volatility):
     position_sizes = []
     
     for _ in range(len(returns)):
-        action, _states = agent.predict(obs, deterministic=True)
+        action, _ = agent.predict(obs)
+        adjustment_percentage = positional_rl_bot(action, margin)  # Get adjustment percentage from PositionRL bot
         if action == 0:  # Hold
             position_size = 0
         elif action == 1:  # Buy
-            position_size = 1
+            position_size = adjustment_percentage
         else:  # Sell
-            position_size = -1
+            position_size = -adjustment_percentage
         position_sizes.append(position_size)
         obs, _, done, _ = env.step(action)
         if done:
@@ -90,3 +92,21 @@ def apply_position_sizing(agent, returns, volatility):
     
     position_sizes = pd.Series(position_sizes, index=returns.index)
     return position_sizes
+
+def positional_rl_bot(action, margin):
+    """
+    Determine adjustment percentage based on the action chosen by the RL agent and available margin.
+    
+    Parameters:
+    action (int): Action chosen by the RL agent (0 for hold, 1 for buy, 2 for sell).
+    margin (float): Available margin for trading.
+    
+    Returns:
+    float: Adjustment percentage.
+    """
+    if action == 0:  # Hold
+        return 0
+    elif action == 1:  # Buy
+        return min(1, margin / 10)  # Adjust up to 10% of the margin for buying
+    else:  # Sell
+        return min(1, margin / 10)  # Adjust up to 10% of the margin for selling
